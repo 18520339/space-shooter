@@ -3,7 +3,7 @@
 void Game::initWindow()
 {
 	this->window = new RenderWindow(
-		VideoMode(864, 1152), 
+		VideoMode(600, 800), 
 		"Space Shooter - SFML Game Development",
 		Style::Close | Style::Titlebar
 	);
@@ -23,6 +23,7 @@ void Game::initTexture()
 void Game::initShip()
 {
 	this->ship = new Ship();
+	this->enemy = new Enemy(20.f, 20.f);
 }
 
 Game::Game()
@@ -62,16 +63,18 @@ void Game::updatePollEvent()
 	}
 }
 
-void Game::updateMovement()
+void Game::updateInput()
 {
-	/*if (Keyboard::isKeyPressed(Keyboard::A))
+	/*
+	if (Keyboard::isKeyPressed(Keyboard::A))
 		this->ship->move(-1.f, 0.f);
 	if (Keyboard::isKeyPressed(Keyboard::D))
 		this->ship->move(1.f, 0.f);
 	if (Keyboard::isKeyPressed(Keyboard::W))
 		this->ship->move(0.f, -1.f);
 	if (Keyboard::isKeyPressed(Keyboard::S))
-		this->ship->move(0.f, 1.f);*/
+		this->ship->move(0.f, 1.f);
+	*/
 
 	if (Mouse::getPosition().x >= window->getPosition().x &&
 		Mouse::getPosition().y >= window->getPosition().y &&
@@ -108,7 +111,7 @@ void Game::updateBullets()
 void Game::update()
 {
 	this->updatePollEvent();
-	this->updateMovement();
+	this->updateInput();
 	this->ship->update();
 	this->updateBullets();
 }
@@ -120,5 +123,7 @@ void Game::render()
 
 	for (Bullet* bullet : this->bullets)
 		bullet->render(*this->window);
+
+	this->enemy->render(*this->window);
 	this->window->display();
 }
