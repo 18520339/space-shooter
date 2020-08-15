@@ -11,7 +11,7 @@ private:
 
 public:
 	Bullet(Texture* texture, float posX, float posY, float x, float y, float moveSpeed);
-	const FloatRect& getBounds();
+	const FloatRect getBounds();
 	void update();
 	void render(RenderTarget& target);
 };

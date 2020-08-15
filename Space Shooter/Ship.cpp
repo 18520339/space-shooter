@@ -26,17 +26,14 @@ Ship::Ship()
 	this->initSprite();
 }
 
-const Vector2f& Ship::getPosition()
+const Vector2f Ship::getPosition()
 {
 	return this->sprite.getPosition();
 }
 
-const Vector2f& Ship::getSize()
+const FloatRect Ship::getBounds()
 {
-	return Vector2f(
-		this->sprite.getScale().x * this->sprite.getTexture()->getSize().x,
-		this->sprite.getScale().y * this->sprite.getTexture()->getSize().y
-	);
+	return this->sprite.getGlobalBounds();
 }
 
 const bool Ship::canAttack()

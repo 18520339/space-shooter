@@ -22,8 +22,8 @@ private:
 
 public:
 	Ship();
-	const Vector2f& getPosition();
-	const Vector2f& getSize();
+	const Vector2f getPosition();
+	const FloatRect getBounds();
 	const bool canAttack();
 
 	void move(const float x, const float y);

@@ -11,7 +11,7 @@ Bullet::Bullet(Texture* texture, float posX, float posY, float x, float y, float
 	this->moveSpeed = moveSpeed;
 }
 
-const FloatRect& Bullet::getBounds()
+const FloatRect Bullet::getBounds()
 {
 	return this->sprite.getGlobalBounds();
 }

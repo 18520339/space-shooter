@@ -1,3 +1,0 @@
-﻿  Enemy.cpp
-C:\Users\QuanKun\Desktop\space-shooter\Space Shooter\Enemy.cpp(5,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Space Shooter.vcxproj -> C:\Users\QuanKun\Desktop\space-shooter\Debug\Space Shooter.exe
