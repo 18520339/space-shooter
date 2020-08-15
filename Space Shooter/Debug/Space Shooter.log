@@ -1,0 +1,7 @@
+﻿  Game.cpp
+C:\Users\Quan Kun\Desktop\space-shooter\Space Shooter\Game.cpp(78,26): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\Quan Kun\Desktop\space-shooter\Space Shooter\Game.cpp(79,26): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\Quan Kun\Desktop\space-shooter\Space Shooter\Game.cpp(82,53): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\Quan Kun\Desktop\space-shooter\Space Shooter\Game.cpp(81,53): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\Quan Kun\Desktop\space-shooter\Space Shooter\Game.cpp(96,20): warning C4018: '<': signed/unsigned mismatch
+  Space Shooter.vcxproj -> C:\Users\Quan Kun\Desktop\space-shooter\Debug\Space Shooter.exe
