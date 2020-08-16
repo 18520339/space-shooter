@@ -2,7 +2,6 @@
 #include "Ship.h"
 #include "Bullet.h"
 #include "Enemy.h"
-#include <map>
 
 class Game
 {
@@ -10,7 +9,10 @@ private:
 	RenderWindow* window;
 	vector<Bullet*> bullets;
 	Texture* texture;
+
 	Ship* ship;
+	RectangleShape shipHpBar;
+	RectangleShape shipHpBarBack;
 
 	vector<Enemy*> enemies;
 	float spawnTimer;
@@ -18,6 +20,8 @@ private:
 
 	Font font;
 	Text pointText;
+	Text gameOverText;
+	unsigned points;
 
 	Texture worldBackgroundTex;
 	Sprite worldBackground;
@@ -26,6 +30,7 @@ private:
 	void initTexture();
 	void initGUI();
 	void initWorld();
+	void initSystems();
 	void initShip();
 	void initEnemies();
 
