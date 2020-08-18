@@ -1,38 +1,36 @@
 #pragma once
-#include "Ship.h"
+#include "SpaceShip.h"
 #include "Bullet.h"
 #include "Enemy.h"
+
+#include <iostream>
+using namespace std;
 
 class Game
 {
 private:
 	RenderWindow* window;
-	vector<Bullet*> bullets;
-	Texture* texture;
-
-	Ship* ship;
-	RectangleShape shipHpBar;
-	RectangleShape shipHpBarBack;
-
-	vector<Enemy*> enemies;
-	float spawnTimer;
-	float spawnTimerMax;
 
 	Font font;
 	Text pointText;
 	Text gameOverText;
+
+	Texture bulletTexture;
+	Texture backgroundTexture;
+	Sprite backgroundSprite;
+	RectangleShape spaceShipHpBar;
+	RectangleShape spaceShipHpBarBack;
+
+	SpaceShip* spaceShip;
+	float enemyInitDelay, enemyInitDelayMax;
 	unsigned points;
 
-	Texture worldBackgroundTex;
-	Sprite worldBackground;
+	vector<Bullet*> bullets;
+	vector<Enemy*> enemies;
 
 	void initWindow();
+	void initText();
 	void initTexture();
-	void initGUI();
-	void initWorld();
-	void initSystems();
-	void initShip();
-	void initEnemies();
 
 public:
 	Game();

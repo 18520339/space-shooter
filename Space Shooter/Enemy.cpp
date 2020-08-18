@@ -1,55 +1,24 @@
 #include "Enemy.h"
 
-void Enemy::initVariables()
+int random(int from, int to)
 {
-	this->pointCount = rand() % 8 + 3;
-	this->type = 0;
-	this->speed = this->pointCount / 2;
-	this->hpMax = this->pointCount;
-	this->hp = this->hpMax;
-	this->damage = this->pointCount;
-	this->points = this->pointCount;
-}
-
-void Enemy::initShape()
-{
-	this->shape.setRadius(this->pointCount * 5);
-	this->shape.setPointCount(this->pointCount);
-	this->shape.setFillColor(Color(
-		rand() % 255 + 1,
-		rand() % 255 + 1,
-		255
-	));
+	srand(time(NULL));
+	return rand() % (to - from + 1) + from;
 }
 
 Enemy::Enemy(float posX, float posY)
 {
-	this->initVariables();
-	this->initShape();
-	this->shape.setPosition(posX, posY);
+	points = random(3, 10);
+	speed = points / 2;
+	hp = hpMax = points;
+
+	circleShape.setRadius(points * 5);
+	circleShape.setPointCount(points);
+	circleShape.setFillColor(Color(random(1, 255), random(1, 255), 255));
+	circleShape.setPosition(posX, -posY);
 }
 
-const FloatRect Enemy::getBounds()
-{
-	return this->shape.getGlobalBounds() ;
-}
-
-const int Enemy::getPoints()
-{
-	return this->points;
-}
-
-const int Enemy::getDamage()
-{
-	return this->damage;
-}
-
-void Enemy::update() 
-{
-	this->shape.move(0.f, this->speed);
-}
-
-void Enemy::render(RenderTarget& target)
-{
-	target.draw(this->shape);
-}
+FloatRect Enemy::getGlobalBounds() { return circleShape.getGlobalBounds(); }
+int Enemy::getPoints() { return points; }
+void Enemy::update() { circleShape.move(0, speed); }
+void Enemy::render(RenderTarget& target) { target.draw(circleShape); }

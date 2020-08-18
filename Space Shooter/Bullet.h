@@ -3,15 +3,15 @@
 using namespace sf;
 
 class Bullet
-{ 
+{
 private:
 	Sprite sprite;
 	Vector2f direction;
-	float moveSpeed;
+	float speed;
 
 public:
-	Bullet(Texture* texture, float posX, float posY, float x, float y, float moveSpeed);
-	const FloatRect getBounds();
+	Bullet(Texture texture, float posX, float posY, float x, float y, float speed);
+	FloatRect getGlobalBounds();
 	void update();
 	void render(RenderTarget& target);
 };

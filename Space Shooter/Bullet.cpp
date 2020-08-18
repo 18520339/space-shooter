@@ -1,30 +1,16 @@
 #include "Bullet.h"
 
-Bullet::Bullet(Texture* texture, float posX, float posY, float x, float y, float moveSpeed)
+Bullet::Bullet(Texture texture, float posX, float posY, float x, float y, float speed)
 {
-	this->sprite.setTexture(*texture);
-	this->sprite.setPosition(posX, posY);
-	this->sprite.scale(0.27f, 0.1f);
+	sprite.setTexture(texture);
+	sprite.setPosition(posX, posY);
+	sprite.scale(0.27f, 0.1f);
 
-	this->direction.x = x;
-	this->direction.y = y;
-	this->moveSpeed = moveSpeed;
+	direction.x = x;
+	direction.y = y;
+	this->speed = speed;
 }
 
-const FloatRect Bullet::getBounds()
-{
-	return this->sprite.getGlobalBounds();
-}
-
-void Bullet::update()
-{
-	this->sprite.move(
-		this->moveSpeed * this->direction.x,
-		this->moveSpeed * this->direction.y
-	);
-}
-
-void Bullet::render(RenderTarget& target)
-{
-	target.draw(this->sprite);
-}
+FloatRect Bullet::getGlobalBounds() { return this->sprite.getGlobalBounds(); }
+void Bullet::update() { sprite.move(speed * direction.x, speed * direction.y); }
+void Bullet::render(RenderTarget& target) { target.draw(this->sprite); }
