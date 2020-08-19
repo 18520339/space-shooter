@@ -2,7 +2,6 @@
 #include "SpaceShip.h"
 #include "Bullet.h"
 #include "Enemy.h"
-
 #include <iostream>
 using namespace std;
 
@@ -10,47 +9,44 @@ class Game
 {
 private:
 	RenderWindow* window;
+	unsigned points;
+	float enemyInitDelay, enemyInitDelayMax;
+
+	SpaceShip* spaceShip;
+	Texture* bulletTexture;
+
+	vector<Bullet*> bullets;
+	vector<Enemy*> enemies;
+
+	Texture backgroundTexture;
+	Sprite backgroundSprite;
 
 	Font font;
 	Text pointText;
 	Text gameOverText;
 
-	Texture bulletTexture;
-	Texture backgroundTexture;
-	Sprite backgroundSprite;
 	RectangleShape spaceShipHpBar;
 	RectangleShape spaceShipHpBarBack;
 
-	SpaceShip* spaceShip;
-	float enemyInitDelay, enemyInitDelayMax;
-	unsigned points;
-
-	vector<Bullet*> bullets;
-	vector<Enemy*> enemies;
-
 	void initWindow();
-	void initText();
-	void initTexture();
+	void initSystem();
+	void initGUI();
 
 public:
 	Game();
 	~Game();
 
-	void run();
 	void updatePollEvent();
 	void updateInput();
-
-	void updateGUI();
-	void updateWorld();
 	void updateCollision();
 
 	void updateBullets();
 	void updateEnemies();
 	void updateCombat();
-	void update();
+	void updateGUI();
 
-	void renderWorld();
-	void renderGUI();
+	void update();
 	void render();
+	void run();
 };
 

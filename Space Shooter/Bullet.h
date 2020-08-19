@@ -10,7 +10,7 @@ private:
 	float speed;
 
 public:
-	Bullet(Texture texture, float posX, float posY, float x, float y, float speed);
+	Bullet(Texture* texture, float posX, float posY, float x, float y, float speed);
 	FloatRect getGlobalBounds();
 	void update();
 	void render(RenderTarget& target);

@@ -1,9 +1,11 @@
 #include "Enemy.h"
+#include <iostream>
+using namespace std;
 
-int random(int from, int to)
-{
-	srand(time(NULL));
-	return rand() % (to - from + 1) + from;
+int random(int from, int to) 
+{ 
+	int num = rand() % (to - from + 1) + from;
+	return num;
 }
 
 Enemy::Enemy(float posX, float posY)
@@ -15,7 +17,7 @@ Enemy::Enemy(float posX, float posY)
 	circleShape.setRadius(points * 5);
 	circleShape.setPointCount(points);
 	circleShape.setFillColor(Color(random(1, 255), random(1, 255), 255));
-	circleShape.setPosition(posX, -posY);
+	circleShape.setPosition(posX, posY);
 }
 
 FloatRect Enemy::getGlobalBounds() { return circleShape.getGlobalBounds(); }

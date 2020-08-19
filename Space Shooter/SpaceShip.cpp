@@ -10,8 +10,8 @@ SpaceShip::SpaceShip()
 	if (!texture.loadFromFile("Textures/ship.png"))
 		cout << "Error::SpaceShip::Couldn't load texture file.\n";
 
-	this->sprite.setTexture(this->texture);
-	this->sprite.scale(0.1, 0.1);
+	sprite.setTexture(texture);
+	sprite.scale(0.1, 0.1);
 }
 
 bool SpaceShip::canAttack()
@@ -31,7 +31,7 @@ void SpaceShip::setPosition(float x, float y) { sprite.setPosition(x, y); }
 int SpaceShip::getHpMax() { return hpMax; }
 int SpaceShip::getHp() { return hp; }
 void SpaceShip::setHp(int hp) { this->hp = hp; }
-void SpaceShip::loseHp(int value) { hp = hp < value ? hp - value : 0; }
+void SpaceShip::loseHp(int value) { hp = (hp < value ? 0 : hp - value); }
 
-void SpaceShip::update() { if (attackSpeed < attackSpeedMax) this->attackSpeed += 0.5; }
+void SpaceShip::update() { if (attackSpeed < attackSpeedMax) attackSpeed += 0.5; }
 void SpaceShip::render(RenderTarget& target) { target.draw(sprite); }
